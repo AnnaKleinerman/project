@@ -52,14 +52,12 @@ st.plotly_chart(fig2)
 st.write('Here is the list of latest date_posted ad')
 st.dataframe(filtered_data.sample(20))
 
+import urllib.request
+from PIL import Image
 
 urllib.request.urlretrieve(
   'https://www.refined-marques.com/wp-content/uploads/2021/04/3-900x480-1.jpg')
   
-img = Image.open("best.png")
+img = Image.open("best.jpg")
 
 st.image(img)
-
-st.caption(':red[Choose your parameters here]')
-
-
