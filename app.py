@@ -50,7 +50,7 @@ st.plotly_chart(fig2)
 
 
 st.write('Here is the list of latest date_posted ad')
-st.dataframe(filtered_data.sample(20))
+st.dataframe(filtered_data.sample(5))
 
 import urllib.request
 from PIL import Image
