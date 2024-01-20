@@ -30,22 +30,22 @@ price_range = st.slider(
 
 actual_range=list(range(price_range[0],price_range[1]+1))
 
-high_rating = st.checkbox('model')
+model_year = st.checkbox('model_year')
 
-if high_rating:
+if model_year:
     filtered_data=data[data.price.isin(actual_range)]
-    filtered_data=filtered_data[data.rating>=2010]
+    filtered_data=filtered_data[data.rating>=2018]
 else:
     filtered_data=data[data.price.isin(actual_range)]
 
 
-st.write('Here are your options with a split by price and model')
+st.write('Here are your options with a split by Price and Model year')
 
-fig = px.scatter(filtered_data, x="price", y="model")           
+fig = px.scatter(filtered_data, x="price", y="model_year")           
 st.plotly_chart(fig)
 
-st.write('Distribution of model')
-fig2 = px.histogram(filtered_data, x="model")
+st.write('Distribution of model_year')
+fig2 = px.histogram(filtered_data, x="model_year")
 st.plotly_chart(fig2)
 
 
