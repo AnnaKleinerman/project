@@ -9,14 +9,14 @@ import plotly.express as px
 import altair as al
 
 data=pd.read_csv('vehicles_us.csv')
-st.title('Choose your car!')
-st.subheader('Use this app to select your future car ')
+st.title('What is your dream car?')
+st.subheader('We have the best prices, the best cars just use this app to select your future car ')
 
 import urllib.request
 from PIL import Image
 
 urllib.request.urlretrieve(
-  'https://i.insider.com/5fc8202350e71a001155892f?width=700')
+  'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bentleymotors.com%2Fen.html&psig=AOvVaw1d5joONWXm3JripboE3npc&ust=1705864416568000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCMCDuK3W7IMDFQAAAAAdAAAAABAD')
   
 img = Image.open("gfg.png")
 
@@ -44,12 +44,12 @@ st.write('Here are your options with a split by price and model_year')
 fig = px.scatter(filtered_data, x="price", y="model_year")           
 st.plotly_chart(fig)
 
-st.write('Distribution of conditions')
-fig2 = px.histogram(filtered_data, x="condition")
+st.write('Distribution of model')
+fig2 = px.histogram(filtered_data, x="model")
 st.plotly_chart(fig2)
 
 
-st.write('Here is the list of new condition cars')
-st.dataframe(filtered_data.sample(40))
+st.write('Here is the list of latest date_posted ad')
+st.dataframe(filtered_data.sample(20))
 
 
