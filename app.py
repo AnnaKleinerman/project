@@ -22,7 +22,7 @@ img = Image.open("gfg.png")
 
 st.image(img)
 
-st.caption(':red[Choose your parameters here]')
+st.caption(':blue[Choose your parameters here]')
 
 price_range = st.slider(
      "What is your price range?",
@@ -34,7 +34,7 @@ model_year = st.checkbox('model_year')
 
 if model_year:
     filtered_data=data[data.price.isin(actual_range)]
-    filtered_data=filtered_data[data.rating>=2018]
+    filtered_data=filtered_data[data.model_year>=2018]
 else:
     filtered_data=data[data.price.isin(actual_range)]
 
