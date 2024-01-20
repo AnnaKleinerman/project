@@ -30,7 +30,7 @@ price_range = st.slider(
 
 actual_range=list(range(price_range[0],price_range[1]+1))
 
-high_rating = st.checkbox('model_year')
+high_rating = st.checkbox('model')
 
 if high_rating:
     filtered_data=data[data.price.isin(actual_range)]
@@ -39,9 +39,9 @@ else:
     filtered_data=data[data.price.isin(actual_range)]
 
 
-st.write('Here are your options with a split by price and model_year')
+st.write('Here are your options with a split by price and model')
 
-fig = px.scatter(filtered_data, x="price", y="model_year")           
+fig = px.scatter(filtered_data, x="price", y="model")           
 st.plotly_chart(fig)
 
 st.write('Distribution of model')
