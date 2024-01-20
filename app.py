@@ -44,8 +44,8 @@ st.write('Here are your options with a split by Price and Model year')
 fig = px.scatter(filtered_data, x="price", y="model_year")           
 st.plotly_chart(fig)
 
-st.write('Distribution of model_year')
-fig2 = px.histogram(filtered_data, x="model_year")
+st.write('Distribution of price')
+fig2 = px.histogram(filtered_data, x="price")
 st.plotly_chart(fig2)
 
 
