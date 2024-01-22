@@ -10,7 +10,7 @@ import altair as al
 
 data=pd.read_csv('vehicles_us.csv')
 st.title('What is your dream car?')
-st.subheader('We have the best prices, the best cars just use this app to select your future car ')
+st.subheader('We have the best prices, the best cars! just use this app to select your future car ')
 
 import urllib.request
 from PIL import Image
@@ -21,8 +21,8 @@ urllib.request.urlretrieve(
 img = Image.open("gfg.png")
 
 st.image(img)
-
 st.caption(':blue[Choose your parameters here]')
+
 
 price_range = st.slider(
      "What is your price range?",
@@ -30,11 +30,11 @@ price_range = st.slider(
 
 actual_range=list(range(price_range[0],price_range[1]+1))
 
-model_year = st.checkbox('model_year')
+transmission = st.checkbox('transmission')
 
-if model_year:
+if transmission:
     filtered_data=data[data.price.isin(actual_range)]
-    filtered_data=filtered_data[data.model_year>=2018]
+    filtered_data=filtered_data[data.transmission=='automatic']
 else:
     filtered_data=data[data.price.isin(actual_range)]
 
@@ -49,15 +49,17 @@ fig2 = px.histogram(filtered_data, x="type")
 st.plotly_chart(fig2)
 
 
+st.write('Here are your options with a split by Transmission ans days listed')
+
+fig = px.scatter(filtered_data, x="transmission", y="days_listed")           
+st.plotly_chart(fig)
+
+st.write('Distribution of type')
+fig2 = px.histogram(filtered_data, x="type")
+st.plotly_chart(fig2)
+
 st.write('Here is the list of latest date_posted ad')
-st.dataframe(filtered_data.sample(5))
+st.dataframe(filtered_data.sample(10))
 
-import urllib.request
-from PIL import Image
 
-urllib.request.urlretrieve(
-  'https://www.refined-marques.com/wp-content/uploads/2021/04/3-900x480-1.jpg')
-  
-img = Image.open("best.jpg")
 
-st.image(img)
