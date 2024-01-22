@@ -58,7 +58,7 @@ fig = px.scatter(filtered_data, x="price", y="model_year")
 st.plotly_chart(fig)
 
 st.write('Distribution of fule')
-fig2 = px.histogram(filtered_data, x="fule")
+fig2 = px.histogram(filtered_data, x="fule", y="price")
 st.plotly_chart(fig2)
 
 
