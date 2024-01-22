@@ -30,12 +30,11 @@ price_range = st.slider(
 
 actual_range=list(range(price_range[0],price_range[1]+1))
 
-transmission = st.checkbox('transmission')
+transmission = st.checkbox('automatic')
 
 if transmission:
     filtered_data=data[data.price.isin(actual_range)]
     filtered_data=filtered_data[data.transmission=='automatic']
-    filtered_data=filtered_data[data.transmission=='manual']
 else:
     filtered_data=data[data.price.isin(actual_range)]
 
@@ -52,7 +51,7 @@ st.plotly_chart(fig2)
 
 st.write('Here are your options with a split by Transmission ans days listed')
 
-fig = px.scatter(filtered_data, x="transmission", y="days_listed")           
+fig = px.histogram(filtered_data, x=':red"transmission"', y=':green"days_listed"')           
 st.plotly_chart(fig)
 
 st.write('Here is the list of latest date_posted ad')
