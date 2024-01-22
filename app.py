@@ -52,9 +52,9 @@ st.write("Filtered Data:")
 st.write(filtered_data)
 
 
-st.write('Here are your options with a split by Price and Model year')
+st.write('Here are your options with a split by Fule type and Model year')
 
-fig = px.scatter(filtered_data, x="price", y="model_year")           
+fig = px.scatter(filtered_data, x="fule", y="model_year")           
 st.plotly_chart(fig)
 
 st.write('Distribution of type')
