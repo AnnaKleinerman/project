@@ -54,7 +54,7 @@ st.write('Here are your options with a split by Transmission ans days listed')
 fig = px.histogram(filtered_data, x="transmission", y="days_listed")           
 st.plotly_chart(fig)
 
-fig = px.line_3d(filtered_data, x="price", y="condition")           
+fig = px.line_mapbox(filtered_data, x="price", y="condition")           
 st.plotly_chart(fig)
 
 st.write('Here is the list of latest date_posted ad')
