@@ -30,21 +30,10 @@ price_range = st.slider(
 
 actual_range=list(range(price_range[0],price_range[1]+1))
 
-transmission = st.checkbox('manual')
 
-if transmission:
-    filtered_data=data[data.price.isin(actual_range)]
-    filtered_data=filtered_data[data.transmission=='manual']
-else:
-    filtered_data=data[data.price.isin(actual_range)]
-
-   
 transmission_manual = st.checkbox('Manual Transmission')
 transmission_automatic = st.checkbox('Automatic Transmission')
-
-
-fuel_petrol = st.checkbox('Petrol')
-fuel_diesel = st.checkbox('Diesel')
+transmission_other = st.checkbox('Other Transmission')
 
 
 filtered_data = data[data.price.isin(actual_range)]
@@ -55,11 +44,9 @@ if transmission_manual:
 if transmission_automatic:
     filtered_data = filtered_data[filtered_data.transmission == 'automatic']
 
-if fuel_petrol:
-    filtered_data = filtered_data[filtered_data.fuel_type == 'petrol']
+if transmission_other:
+    filtered_data = filtered_data[filtered_data.fuel_type == 'other']
 
-if fuel_diesel:
-    filtered_data = filtered_data[filtered_data.fuel_type == 'diesel']
 
 st.write("Filtered Data:")
 st.write(filtered_data)
