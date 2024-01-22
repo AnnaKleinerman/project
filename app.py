@@ -45,7 +45,7 @@ if transmission_automatic:
     filtered_data = filtered_data[filtered_data.transmission == 'automatic']
 
 if transmission_other:
-    filtered_data = filtered_data[filtered_data.fuel_type == 'other']
+    filtered_data = filtered_data[filtered_data.transmission == 'other']
 
 
 st.write("Filtered Data:")
@@ -69,9 +69,4 @@ st.plotly_chart(fig)
 
 fig = px.scatter(filtered_data, x="price", y="condition")           
 st.plotly_chart(fig)
-
-st.write('Here is the list of latest date_posted ad')
-st.dataframe(filtered_data.sample(5))
-
-
 
