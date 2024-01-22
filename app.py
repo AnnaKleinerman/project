@@ -30,6 +30,38 @@ price_range = st.slider(
 
 actual_range=list(range(price_range[0],price_range[1]+1))
 
+import tkinter as tk
+
+def on_submit():
+    selected_options = [option.get() for option in checkboxes]
+    print("Selected options:", selected_options)
+
+
+window = tk.Tk()
+window.title("Checkbox Example")
+
+
+manual_var = tk.IntVar()
+automatic_var = tk.IntVar()
+other_var = tk.IntVar()
+
+
+manual_checkbox = tk.Checkbutton(window, text="Manual", variable=manual_var)
+automatic_checkbox = tk.Checkbutton(window, text="Automatic", variable=automatic_var)
+other_checkbox = tk.Checkbutton(window, text="Other", variable=other_var)
+
+
+manual_checkbox.pack()
+automatic_checkbox.pack()
+other_checkbox.pack()
+
+
+submit_button = tk.Button(window, text="Submit", command=on_submit)
+submit_button.pack()
+
+
+window.mainloop()
+
 transmission = st.checkbox('manual')
 
 if transmission:
